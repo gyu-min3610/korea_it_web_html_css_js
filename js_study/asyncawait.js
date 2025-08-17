@@ -6,67 +6,66 @@
  */
 // const promise = new Promise((resolve) => resolve("개발자"));
 
-// async function getDate() {
-// 	//async키워드가 함수 자체를 비동기 함수로 만듦(함수 자체가 promise)
-// 	return promise; //이렇게 한다고 해서 프로미스에 프로미스가 감싸진 형태는 아니다
+// async function getData(params) {
+//   	//async키워드가 함수 자체를 비동기 함수로 만듦(함수 자체가 promise)
+//   	return promise; //이렇게 한다고 해서 프로미스에 프로미스가 감싸진 형태는 아니다
 // }
-
-// const user = getDate();
+// const user = getData();
 // user.then((name) => console.log(name));
 
 // function getUserReq() {
-// 	return new Promise((resolve) => {
-// 		setTimeout(() => {
-// 			console.log("사용자 데이터를 받아옴");
-// 			return resolve("서버1");
-// 		}, 2000);
-// 	});
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log("사용자 데이터를 받아옴");
+//       return resolve("서버1");
+//     }, 2000);
+//   });
 // }
 
 // async function getData() {
-// 	// getUserReq() //비동기 함수가 끝날때까지 다음 작업 기다려주지 않음 (비동기)
-// 	const result = await getUserReq(); //await는 해당 비동기 작업이 완료될 때까지 다음 작업을 하지않고 기다림
-// 	const result2 = await getUserReq();
-// 	return "이동윤";
+//   //   getUserReq() // 비동기 함수가 끝날때까지 다음 작업 기다려주지 않음 (비동기)
+//   const result = await getUserReq(); //await은 해당 비동기 작업이 완료될 때까지 다음 작업을 하지않고 기다림
+//   const result2 = await getUserReq();
+//   return "권규민";
 // }
 
 // function getDataPromise() {
-// 	//이전의 promise버전
-// 	return getUserReq()
-// 		.then(() => {
-// 			return getUserReq();
-// 		})
-// 		.then(() => {
-// 			return "이동윤";
-// 		});
+//   //이전의 promise버전
+//   return getUserReq()
+//     .then(() => {
+//       return getUserReq;
+//     })
+//     .then(() => {
+//       return "권규민";
+//     });
 // }
 
-// const user = getDataPromise();
+// const user = getData();
 // user.then((name) => console.log(name));
 
 function getUserReq() {
-	return new Promise((resolve) => {
-		setTimeout(() => {
-			console.log("사용자 데이터를 받아옴");
-			return resolve("서버1");
-		}, 2000);
-	});
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("사용자 데이터를 받아옴");
+      return resolve("서버1");
+    }, 2000);
+  });
 }
 
 async function getUser() {
-	await getUserReq();
-	return "이동윤";
+  await getUserReq();
+  return "권규민";
 }
 
 async function getTodo() {
-	await getUserReq();
-	return ["밥먹기", "잠자기"];
+  await getUserReq();
+  return ["밥먹기", "잠자기"];
 }
 
 async function getData() {
 	const user = await getUser();
 	const todo = await getTodo();
-	console.log(`${user}님 ${todo}를 해야합니다.`);
+	console.log(`${user}님 ${todo}를 해야합니다.`)
 }
 
 getData();
